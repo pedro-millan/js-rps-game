@@ -41,7 +41,7 @@ function getPlayerChoice() {
     }
 }
 
-// playRound function
+// Resolves a single round and returns { winner, message }. winner is "player", "computer" or "draw"
 function playRound(playerSelection, computerSelection) {
     // Defensive input guard
     if (!options.includes(playerSelection) || !options.includes(computerSelection)) {
@@ -75,10 +75,12 @@ function playRound(playerSelection, computerSelection) {
     };
 }
 
+// Runs the match loop (best of 5, first to 3 wins) and logs/alerts results each round
 function game() {
     let playerScore = 0;
     let computerScore = 0;
 
+    // Keep playing rounds until someone reaches 3 wins
     while (playerScore < 3 && computerScore < 3) {
         const playerChoice = getPlayerChoice();
 
